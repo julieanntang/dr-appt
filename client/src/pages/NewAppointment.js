@@ -29,7 +29,7 @@ export default function NewAppointment() {
     setPhysicianId(value);
   };
   const handleSubmit = async () => {
-    let res = await axios.post("/api/appointments", {
+    await axios.post("/api/appointments", {
       appointment_date,
       description,
       physician_id: physicianId,
