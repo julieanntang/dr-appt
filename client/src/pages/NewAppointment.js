@@ -9,6 +9,7 @@ import axios from "axios";
 export default function NewAppointment() {
   const [physicianId, setPhysicianId] = useState(null);
   const [patientId, setPatientId] = useState(null);
+  const [description, setDescription] = useState(null);
   const [appointment_date, setAppointmentDate] = useState("12:00 PM");
   const {
     data: patients,
@@ -30,6 +31,7 @@ export default function NewAppointment() {
   const handleSubmit = async () => {
     let res = await axios.post("/api/appointments", {
       appointment_date,
+      description,
       physician_id: physicianId,
       patient_id: patientId,
     });
@@ -83,6 +85,11 @@ export default function NewAppointment() {
       <Form onSubmit={handleSubmit}>
         {renderPatients()}
         {renderPhysicians()}
+        <Input
+          placeholder="enter description"
+          value={description}
+          onChange={(e, { value }) => setDescription(value)}
+        />
         <Input
           placeholder="enter time"
           value={appointment_date}
