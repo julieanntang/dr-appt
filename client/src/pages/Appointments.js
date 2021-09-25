@@ -11,7 +11,7 @@ export default function Appointments() {
         return (
           <div key={a.id}>
             <p>
-              {a.patient.name} has an apppointment with {a.physician.name} on
+              {a.patient.name} has an apppointment with {a.physician.name} on {a.appointment.appointmentDate}
             </p>
           </div>
           );
