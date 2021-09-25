@@ -1,31 +1,22 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import { Menu } from "semantic-ui-react";
+import { routes } from "../components/routes";
 
-
-
-class NavBar extends React.Component {
-  render () {
+class Navbar extends React.Component {
+  renderRoutes = () => {
     const { location } = this.props;
-    return (
-      <>
-      <Menu>
-        <Link to="/">
-          <Menu.Item active={location.pathname === "/"}>Home</Menu.Item>
+    return routes.map(({ pathname, title }) => {
+      return (
+        <Link to={pathname}>
+          <Menu.Item active={location.pathname === pathname}>{title}</Menu.Item>
         </Link>
-        <Link to="/appointments">
-          <Menu.Item active={location.pathname === "/appointments"}>Appointments</Menu.Item>
-        </Link>
-        <Link to="/patients">
-          <Menu.Item active={location.pathname === "/patients"}>Patients</Menu.Item>
-        </Link>
-        <Link to="/physicians">
-          <Menu.Item active={location.pathname === "/physicians"}>Physicians</Menu.Item>
-        </Link>
-      </Menu>
-      </>
-    );
+      );
+    });
+  };
+  render() {
+    return <Menu>{this.renderRoutes()}</Menu>;
   }
 }
 
-export default withRouter(NavBar);
+export default withRouter(Navbar);
