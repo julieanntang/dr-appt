@@ -95,7 +95,7 @@ export default function NewAppointment() {
           value={appointment_date}
           onChange={(e, { value }) => setAppointmentDate(value)}
         />
-        <Button type={"submit"}>add</Button>
+        <Button type={"submit"}>Add</Button>
       </Form>
     </div>
   );

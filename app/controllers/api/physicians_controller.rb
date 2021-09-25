@@ -32,7 +32,7 @@ class Api::PhysiciansController < ApplicationController
   end
 
   def physician_params
-    params.require(:physician).permit(:name, :description)
+    params.require(:physician).permit(:name)
   end
 
 
