@@ -15,9 +15,10 @@ Patient.destroy_all
 physicians = Physician.create(
 [{name:"Dr. Tony Stark"},
 {name:"Dr. Bruce Banner"},
-{name:"Dr. Stephen Strange"}])
+{name:"Dr. Stephen Strange"},
+{name:"Dr. Steve Rogers"}])
 
-3.times do |i|
+5.times do |i|
   patient = Patient.create(name: Faker::Name.name)
   Appointment.create(appointment_date: Faker::Time.forward(days: 15, period: :afternoon), description: "Physical Check-Up", patient_id: patient.id, physician_id: physicians[0].id)
   Appointment.create(appointment_date: Faker::Time.forward(days: 30, period: :morning), description: "Eye Exam", patient_id: patient.id, physician_id: physicians[1].id)
